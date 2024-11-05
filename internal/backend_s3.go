@@ -388,7 +388,7 @@ func (s *S3Backend) HeadBlob(param *HeadBlobInput) (*HeadBlobOutput, error) {
 
 func (s *S3Backend) ListBlobs(param *ListBlobsInput) (*ListBlobsOutput, error) {
 	var maxKeys *int64
-
+	s3Log.Debugf("MATHIS TEST")
 	if param.MaxKeys != nil {
 		maxKeys = aws.Int64(int64(*param.MaxKeys))
 	}
@@ -401,6 +401,7 @@ func (s *S3Backend) ListBlobs(param *ListBlobsInput) (*ListBlobsOutput, error) {
 		StartAfter:        param.StartAfter,
 		ContinuationToken: param.ContinuationToken,
 	})
+	s3Log.Debugf("MATHIS TEST: resp %v, reqid %v, err %v", resp, reqId, err)
 	if err != nil {
 		return nil, mapAwsError(err)
 	}
@@ -420,7 +421,7 @@ func (s *S3Backend) ListBlobs(param *ListBlobsInput) (*ListBlobsOutput, error) {
 			StorageClass: i.StorageClass,
 		})
 	}
-
+	s3Log.Debugf("MATHIS TEST: prefixes %v, items %v", prefixes, items)
 	return &ListBlobsOutput{
 		Prefixes:              prefixes,
 		Items:                 items,

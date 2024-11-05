@@ -287,6 +287,7 @@ func (s *S3Backend) Init(key string) error {
 }
 
 func (s *S3Backend) ListObjectsV2(params *s3.ListObjectsV2Input) (*s3.ListObjectsV2Output, string, error) {
+	s3Log.Debugf("MATHIS TEST: params %v, backend %v", params, s)
 	if s.aws {
 		req, resp := s.S3.ListObjectsV2Request(params)
 		err := req.Send()
@@ -313,7 +314,7 @@ func (s *S3Backend) ListObjectsV2(params *s3.ListObjectsV2Input) (*s3.ListObject
 		if err != nil {
 			return nil, "", err
 		}
-
+		s3Log.Debugf("MATHIS TEST: objs %v, err %v", params, s)
 		count := int64(len(objs.Contents))
 		v2Objs := s3.ListObjectsV2Output{
 			CommonPrefixes:        objs.CommonPrefixes,

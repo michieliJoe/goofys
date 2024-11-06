@@ -314,7 +314,7 @@ func (s *S3Backend) ListObjectsV2(params *s3.ListObjectsV2Input) (*s3.ListObject
 		if err != nil {
 			return nil, "", err
 		}
-		s3Log.Debugf("MATHIS TEST: objs %v, err %v", params, s)
+		s3Log.Debugf("MATHIS TEST: objs %v, err %v", objs, err)
 		count := int64(len(objs.Contents))
 		v2Objs := s3.ListObjectsV2Output{
 			CommonPrefixes:        objs.CommonPrefixes,

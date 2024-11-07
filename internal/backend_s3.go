@@ -427,7 +427,7 @@ func (s *S3Backend) ListBlobs(param *ListBlobsInput) (*ListBlobsOutput, error) {
 		Prefixes:              prefixes,
 		Items:                 items,
 		NextContinuationToken: resp.NextContinuationToken,
-		IsTruncated:           *resp.IsTruncated,
+		IsTruncated:           false, //forcing false to test
 		RequestId:             reqId,
 	}, nil
 }

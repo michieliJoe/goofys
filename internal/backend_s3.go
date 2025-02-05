@@ -423,11 +423,17 @@ func (s *S3Backend) ListBlobs(param *ListBlobsInput) (*ListBlobsOutput, error) {
 		})
 	}
 	s3Log.Debugf("MATHIS TEST: prefixes %v, items %v", prefixes, items)
+	isTruncatedFlag := false
+	if resp.IsTruncated != nil {
+		isTruncatedFlag = *resp.IsTruncated
+	} else {
+		s3Log.Debugf("MATHIS TEST: nil pointer catch")
+	}
 	return &ListBlobsOutput{
 		Prefixes:              prefixes,
 		Items:                 items,
 		NextContinuationToken: resp.NextContinuationToken,
-		IsTruncated:           false, //forcing false to test
+		IsTruncated:           isTruncatedFlag,
 		RequestId:             reqId,
 	}, nil
 }

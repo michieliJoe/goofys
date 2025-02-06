@@ -27,10 +27,10 @@ require (
 	github.com/sirupsen/logrus v1.4.3-0.20190807103436-de736cf91b92
 	github.com/smartystreets/assertions v1.2.0 // indirect
 	github.com/urfave/cli v1.21.1-0.20190807111034-521735b7608a
-	golang.org/x/net v0.23.0 // indirect
+	golang.org/x/crypto v0.32.0 // indirect
 	golang.org/x/oauth2 v0.10.0
-	golang.org/x/sync v0.3.0
-	golang.org/x/sys v0.18.0
+	golang.org/x/sync v0.10.0
+	golang.org/x/sys v0.29.0
 	google.golang.org/api v0.126.0
 	google.golang.org/grpc v1.58.3 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect

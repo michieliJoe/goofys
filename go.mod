@@ -1,4 +1,4 @@
-module github.com/StatCan/goofys
+module github.com/michieliJoe/goofys
 
 go 1.14
 
